@@ -3,13 +3,13 @@ package tpjava;
 public class Main {
 
 	public static void main(String[] args) {
-
-		Carte c1 = new Carte(1, "Spade");
-		Carte c2 = new Carte(13, "Heart");
-		Carte c3 = new Carte(2, "Diamond");
-		System.out.println(c1.getValeur() + " of " + c1.getCouleur());
-		System.out.println(c2.getValeur() + " of " + c2.getCouleur());
-		System.out.println(c3.getValeur() + " of " + c3.getCouleur());
+		Deck d = new Deck();
+		d.afficher();
+		d.melanger();
+		d.afficher();
+		Deck d2 = d.diviser();
+		d.afficher();
+		d2.afficher();
 	}
 
 }
