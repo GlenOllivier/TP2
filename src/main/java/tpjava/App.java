@@ -1,5 +1,6 @@
 package tpjava;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -8,17 +9,18 @@ import java.util.Scanner;
  */
 public class App {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		String palindrome;
-		System.out.println("Veuillez entrer un palindrome a tester :");
-		palindrome = scanner.nextLine();
-
-		if (isPalindrome(palindrome)) {
-			System.out.println(palindrome + " est un palindrome");
-		} else {
-			System.out.println(palindrome + " n'est pas un palindrome.");
-		}
-		scanner.close();
+//		Scanner scanner = new Scanner(System.in);
+//		String palindrome;
+//		System.out.println("Veuillez entrer un palindrome a tester :");
+//		palindrome = scanner.nextLine();
+//
+//		if (isPalindrome(palindrome)) {
+//			System.out.println(palindrome + " est un palindrome");
+//		} else {
+//			System.out.println(palindrome + " n'est pas un palindrome.");
+//		}
+//		scanner.close();
+		plusMoins();
 	}
 
 	public static void printFirstPrimes(int nbPrimes) {
@@ -65,5 +67,28 @@ public class App {
 			}
 		}
 		return true;
+	}
+
+	public static void plusMoins() {
+		Scanner scanner = new Scanner(System.in);
+		Random rand = new Random();
+		int nbCache = rand.nextInt(100) + 1;
+		int nbChoisis;
+		int nbCoups = 0;
+
+		do {
+			System.out.print("Choisissez un nombre entre 1 et 100 : ");
+			nbChoisis = scanner.nextInt();
+			if (nbChoisis < nbCache) {
+				System.out.println("C'est plus !");
+			}
+			if (nbChoisis > nbCache) {
+				System.out.println("C'est moins !");
+			}
+			nbCoups++;
+		} while (nbChoisis != nbCache);
+
+		System.out.println("Trouve en " + nbCoups + " coups.");
+		scanner.close();
 	}
 }
