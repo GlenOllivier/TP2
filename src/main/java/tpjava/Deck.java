@@ -58,4 +58,30 @@ public class Deck {
 		cartes = newCartes1;
 		return new Deck(newCartes2);
 	}
+
+	public Carte draw() {
+		if (cartes.length < 1) {
+			return null;
+		}
+		Carte[] newCartes = new Carte[cartes.length - 1];
+		Carte drawnCarte = cartes[0];
+		for (int i = 1; i < cartes.length; i++) {
+			newCartes[i - 1] = cartes[i];
+		}
+		cartes = newCartes;
+		return drawnCarte;
+	}
+
+	public void addCard(Carte carte) {
+		Carte[] newCartes = new Carte[cartes.length + 1];
+		for (int i = 0; i < cartes.length; i++) {
+			newCartes[i] = cartes[i];
+		}
+		newCartes[cartes.length] = carte;
+		cartes = newCartes;
+	}
+
+	public int getSize() {
+		return this.cartes.length;
+	}
 }
